@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actilist</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <link rel="manifest" href="icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <div id="actilist">
+        <div id="actilist_title">
+            <img src="icon/favicon-96x96.png" id="actilist_icon">
+            <div id="actilist_text">Actilist</div>
+        </div>
+    </div>
+    <div id="columns">
+        <div id="first_column" class="column">
+            <div id="div_filters">
+                <div class="title">Filters</div>
+                <hr>
+                <table id="filters_table">
+                    <tr>
+                        <td>
+                            <input type="radio" class="radio" name="filter" value="random" checked="checked" onchange="show_filter()">
+                        </td>
+                        <td>Random</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" class="radio" name="filter" value="type" onchange="show_filter()">
+                        </td>
+                        <td>Type</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" class="radio" name="filter" value="participants" onchange="show_filter()">
+                        </td>
+                        <td>Participants</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" class="radio" name="filter" value="price" onchange="show_filter()">
+                        </td>
+                        <td>Price</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" class="radio" name="filter" value="accessibility" onchange="show_filter()">
+                        </td>
+                        <td>Accessibility</td>
+                    </tr>
+                </table>
+                <input id="search" type="button" value="Search activity" onclick="search_activity()">
+                <div>
+                    <div id="selected_filter"></div>
+                    <select class="filter" name="type" id="type_filter">
+                        <option value="education">Education</option>
+                        <option value="recreational">Recreational</option>
+                        <option value="social">Social</option>
+                        <option value="diy">Diy</option>
+                        <option value="charity">Charity</option>
+                        <option value="cooking">Cooking</option>
+                        <option value="relaxation">Relaxation</option>
+                        <option value="music">Music</option>
+                        <option value="busywork">Busywork</option>
+                    </select>
+                    <input class="filter" type="number" id="participants_filter" name="participants" min=1 max=8 value=1>
+                    <input class="filter" type="range" oninput="set_scroll('price_filter')" name="price" id="price_filter" min=0.0 max=1.0 value=0.0 step=0.05>
+                    <input class="filter" type="range" oninput="set_scroll('accessibility_filter')" name="accessibility" id="accessibility_filter" min=0.0 max=1.0 value=0.0 step=0.1>
+                </div>
+            </div>
+            <div id="div_info">
+                <div class="title">Info</div>
+                <hr>
+                <div id="info">
+                    <div id="icon"></div>
+                    <div id="message"></div>
+                </div>
+            </div>
+        </div>
+        <div class="column" id="div_generated">
+            <div class="title">Generated activities</div>
+            <hr>
+            <div id="generated"></div>
+        </div>
+        <div class="column" id="div_saved">
+            <div class="title">Saved activities</div>
+            <hr>
+            <div id="saved"></div>
+        </div>
+    </div>
+</body>
+</html>
